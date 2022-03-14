@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="fernosa.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-dark">
+    <nav class="topnav">
+      <div>
+        <div>
+          <logo>Fernosa</logo>
+        </div>
+
+        <div class="flex items-center">
+          <ul class="text-sm font-montserrat font-medium text-white">
+            <a class="px-2" href="#">Docs</a>
+            <a class="px-2" href="#">Components</a>
+          </ul>
+
+          <div
+            class="items-center flex ml-4 pl-4 text-xl"
+            style="border-left: 2px #e5e7eb49 solid"
+          >
+            <a class="px-2">
+              <i
+                id="change"
+                class="bx bxs-moon text-yellow"
+                onclick="toggleTheme()"
+              ></i>
+            </a>
+            <a class="px-2">
+              <i class="bx bxl-github text-white"></i>
+            </a>
+            <a class="px-2 text-2xl">
+              <i
+                id="mf"
+                onclick="lol()"
+                class="bx bxl-discord-alt text-indigo"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+
+  <script>
+    const btn = document.getElementById("change");
+
+    function setTheme(themeName) {
+      localStorage.setItem("theme", themeName);
+      document.documentElement.className = themeName;
+    }
+
+    // function to toggle between light and dark theme
+    function toggleTheme() {
+      if (localStorage.getItem("theme") === "bg-dark") {
+        setTheme("bg-light");
+        btn.classList.add("bxs-sun");
+        btn.classList.remove("bxs-moon");
+      } else {
+        setTheme("bg-dark");
+        btn.classList.add("bxs-moon");
+        btn.classList.remove("bxs-sun");
+      }
+    }
+
+    // Immediately invoked function to set the theme on initial load
+    (function () {
+      if (localStorage.getItem("theme") === "bg-light") {
+        setTheme("bg-dark");
+      } else {
+        setTheme("bg-light");
+      }
+    })();
+  </script>
+</html>

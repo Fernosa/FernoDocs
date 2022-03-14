@@ -1,0 +1,121 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+@import "theme";
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.bg-dark {
+  background-color: #14111b;
+  color: palette(white);
+  @include phone-only {
+    background: url('/assets/bg.svg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+.bg-light {
+  background-color: #F3EEFF;
+  color: map-get($theme-colors, black);
+  @include phone-only {
+    background: url('/assets/bg-light.svg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+
+
+// components
+
+nav.topnav {
+  background-color: #1e192c46;
+  height: 3.25rem;
+  backdrop-filter: blur(4px);
+  width: 100vw;
+  display: flex;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  -user-drag: false;
+  user-select: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+  > div {
+    justify-content: space-between;
+    width: 90%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+  }
+
+  logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-variant: normal;
+    display: flex;
+    align-items: center;
+    color: palette(white);
+    font-weight: 500;
+
+  }
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+::selection {
+  background: #6f00ff;
+  color: #dedfe6;
+}
+
+.button {
+  background-color: #6f00ff;
+
+  &:hover {
+    color: #dfdede;
+  }
+}
+
+.h {
+  margin: 0 1.25rem;
+}
+
+.icon {
+  height: 1.125rem;
+  //
+}
+
+.icon > a {
+  padding: 0 0.625rem;
+}
+
+p {
+  width: 40%;
+}
+
+.bg-dark .kg {
+  color: #ffffffbf;
+}
+
+.bg-light .kg {
+  color: #000000bf;
+}
+
+
+.tag {
+  border-color: #e5e7eb33;
+}
